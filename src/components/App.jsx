@@ -1,11 +1,11 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { FriendsPage } from 'pages/FriendsPage';
-import { AddPetsPage } from 'pages/AddPetsPage';
+// import { AddPetsPage } from 'pages/AddPetsPage';
 import { HomePage } from 'pages/HomePage';
 import { LoginPage } from 'pages/LoginPage';
-import { newsPage } from 'pages/NewsPage';
+// import { newsPage } from 'pages/NewsPage';
 import { NoticePage } from 'pages/NoticePage';
-import { ProfilePage } from 'pages/ProfilePage';
+// import { ProfilePage } from 'pages/ProfilePage';
 import { RegisterPage } from 'pages/RegisterPage';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 
@@ -27,9 +27,3 @@ export const App = () => {
   );
 };
 
-// <Route
-//   path="/login"
-//   element={
-//     <PrivateRoute><Favorite /></PrivateRoute>
-//   }
-// />
