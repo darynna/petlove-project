@@ -1,13 +1,18 @@
 {
   "files": {
     "main.css": "/petlove-project/static/css/main.7acaea2f.css",
-    "main.js": "/petlove-project/static/js/main.07d3183d.js",
+    "main.js": "/petlove-project/static/js/main.454e52e8.js",
+    "static/media/registration.jpeg": "/petlove-project/static/media/registration.8d3ef33603acc1d903e8.jpeg",
+    "static/media/login.jpeg": "/petlove-project/static/media/login.5fbc6167362039e938dc.jpeg",
     "index.html": "/petlove-project/index.html",
+    "static/media/logo-heart.svg": "/petlove-project/static/media/logo-heart.e4c6c6489478aa541c63744333d9b995.svg",
+    "static/media/open-btn.svg": "/petlove-project/static/media/open-btn.8e3c25979193d32c844567c9ceae0704.svg",
+    "static/media/close-btn.svg": "/petlove-project/static/media/close-btn.9b2ee83c334dfb12dcb9289409cbf6a6.svg",
     "main.7acaea2f.css.map": "/petlove-project/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/petlove-project/static/js/main.07d3183d.js.map"
+    "main.454e52e8.js.map": "/petlove-project/static/js/main.454e52e8.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/js/main.454e52e8.js"
   ]
 }
