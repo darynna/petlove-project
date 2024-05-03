@@ -1,46 +1,76 @@
 import { AuthNav } from 'components/Header/AuthNav';
-import { useState } from "react";
+import { useState } from 'react';
 import { ReactComponent as CloseIcon } from '../../assets/icons/close-btn.svg';
 import { ReactComponent as OpenIcon } from '../../assets/icons/open-btn.svg';
-import { BurgerMenuOpen, NavLinks, NavLinkItem, NavLinkStyled , Menu, NavLinkAuth, BurgerMenuClose} from './Header.styled';
+import { ReactComponent as HeartIcon } from '../../assets/icons/logo-heart.svg';
+import {
+  BurgerMenuOpen,
+  NavLinks,
+  NavLinkItem,
+  NavLinkStyled,
+  Menu,
+  NavLinkAuth,
+  BurgerMenuClose,
+  LogoDesign,
+    MenuDiv,
+    ListSecondary,
+    Wrap
+} from './Header.styled';
 
 export const Header = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
-    return (
-    
-<>
-            <Menu>
-                <NavLinkStyled to="/home">PetLove</NavLinkStyled>
-                <NavLinkAuth $isOpen={menuOpen}><NavLinkItem> <AuthNav /></NavLinkItem></NavLinkAuth>
-                <BurgerMenuOpen $isOpen={menuOpen} className="burger-menu" onClick={toggleMenu}>
-                    <OpenIcon/>
-                </BurgerMenuOpen>
-                <NavLinks $isOpen={menuOpen}>
-                    <BurgerMenuClose className="burger-menu" onClick={toggleMenu}>
-                    <CloseIcon/>
-                </BurgerMenuClose>
-                    <NavLinkItem><NavLinkStyled to="/news">News</NavLinkStyled></NavLinkItem>
-                    <NavLinkItem><NavLinkStyled to="/notices">Find pet</NavLinkStyled></NavLinkItem>
-                    <NavLinkItem><NavLinkStyled to="/friends">Our friends</NavLinkStyled></NavLinkItem>
-                    <NavLinkItem> <AuthNav /></NavLinkItem>
-                </NavLinks>
-            </Menu>
-        </>
-    )
-}
+  return (
+    <>
+      <Menu>
+        <NavLinkStyled to="/home">
+          <LogoDesign>
+            petl
+            <HeartIcon />
+            ove
+          </LogoDesign>
+        </NavLinkStyled>
+        <NavLinkAuth $isOpen={menuOpen}>
+            <AuthNav />
+        </NavLinkAuth>
+        <BurgerMenuOpen
+          $isOpen={menuOpen}
+          className="burger-menu"
+          onClick={toggleMenu}
+        >
+          <OpenIcon />
+        </BurgerMenuOpen>
 
-
-
-    /* <nav>
-            <NavLink to="home">PetLove</NavLink>
-            <NavLink to="news">News</NavLink>
-            <NavLink to="notices">Find pet</NavLink>
-            <NavLink to="friends">Our friends</NavLink>
-            <AuthNav/>
-            
-            </nav> */
+        <MenuDiv $isOpen={menuOpen}>
+          <BurgerMenuClose className="burger-menu" onClick={toggleMenu}>
+            <CloseIcon />
+          </BurgerMenuClose>
+         <Wrap>
+          <NavLinks>
+            <li>
+              <ListSecondary>
+                <NavLinkItem>
+                  <NavLinkStyled to="/news">News</NavLinkStyled>
+                </NavLinkItem>
+                <NavLinkItem>
+                  <NavLinkStyled to="/notices">Find pet</NavLinkStyled>
+                </NavLinkItem>
+                <NavLinkItem>
+                  <NavLinkStyled to="/friends">Our friends</NavLinkStyled>
+                </NavLinkItem>
+              </ListSecondary>
+            </li>
+            <li>
+              <AuthNav />
+            </li>
+                      </NavLinks>
+                      </Wrap> 
+        </MenuDiv>
+      </Menu>
+    </>
+  );
+};

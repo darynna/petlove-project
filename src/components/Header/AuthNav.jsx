@@ -1,10 +1,14 @@
-import { NavLink } from "react-router-dom";
+import {ListSecondary, NavLinkStyled, NavLinkItem} from "./Header.styled"
 
 export const AuthNav = () => {
     return (
-        <>
-            <NavLink to="login">Login</NavLink>
-            <NavLink to="register">Register</NavLink>
-        </>
+        <ListSecondary className="auth-table">
+            <NavLinkItem className="btn-login">
+                <NavLinkStyled className="btn-login-color" to="login">Login</NavLinkStyled>
+            </NavLinkItem>
+            <NavLinkItem className="btn-register" >
+                <NavLinkStyled className="btn-register-color" to="register">Register</NavLinkStyled>
+                </NavLinkItem>
+        </ListSecondary>
     )
 }
