@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/petlove-project/static/css/main.7acaea2f.css",
+    "main.js": "/petlove-project/static/js/main.07d3183d.js",
+    "index.html": "/petlove-project/index.html",
+    "main.7acaea2f.css.map": "/petlove-project/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/petlove-project/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
