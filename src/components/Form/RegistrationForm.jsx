@@ -2,23 +2,30 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { NavLink } from 'react-router-dom';
-import registrationImage from '../../assets/img/registration.jpeg'; 
+import registrationImageDesktop from '../../assets/img/registration-desktop.jpeg'; 
+import registrationImageTablet from "../../assets/img/registration-tablet.jpeg"
+import registrationImagePhone from "../../assets/img/registration-phone.jpeg";
+import { Image, ImgWrap, MainFormWrap, FormWrap } from './Form.styled';
+import { apiUserRegister } from '../../redux/Auth/authSlice';
+import { useDispatch} from "react-redux";
 
 export const RegisterForm = () => {
+    const dispatch = useDispatch();
   return (
-      <div>
-          <div>
-              <img src={registrationImage} alt="" />
-          </div>
-          <div>
-          <h2>Registration</h2>
-          <p>Thank you for your interest in our platform.</p>
+      <MainFormWrap>
+          <ImgWrap>
+        <Image src={registrationImageDesktop} alt="Registration" className="desktop-image" />
+        <Image src={registrationImageTablet} alt="Registration" className="tablet-image" />
+        <Image src={registrationImagePhone} alt="Registration" className="phone-image" />
+          </ImgWrap>
+          <FormWrap>
+          <h2 className='headline'>Registration</h2>
+          <p className='text'>Thank you for your interest in our platform.</p>
       <Formik
         initialValues={{
           name: '',
           email: '',
           password: '',
-          confirmPassword: '',
         }}
         validationSchema={Yup.object({
           name: Yup.string().required('Enter a valid name'),
@@ -31,43 +38,40 @@ export const RegisterForm = () => {
             .required('Repeat password'),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            const formData = {name: values.name, email: values.email, password: values.password };
+            console.log(formData);
+           dispatch(apiUserRegister(formData));
             setSubmitting(false);
-          }, 400);
+         
         }}
       >
         <Form>
           <div>
-            <label htmlFor="name">Name</label>
-            <Field type="text" name="name" />
-            <ErrorMessage name="name" component="div" />
+            <Field className='input' type="text" name="name" placeholder="Name"/>
+            <ErrorMessage className='message-error' name="name" component="div" />
           </div>
 
           <div>
-            <label htmlFor="email">Email</label>
-            <Field type="email" name="email" />
-            <ErrorMessage name="email" component="div" />
+            <Field className='input' type="email" name="email" placeholder="Email"/>
+            <ErrorMessage className='message-error' name="email" component="div" />
           </div>
 
           <div>
-            <label htmlFor="password">Password</label>
-            <Field type="password" name="password" />
-            <ErrorMessage name="password" component="div" />
+            <Field className='input' type="password" name="password" placeholder="Password"/>
+            <ErrorMessage className='message-error' name="password" component="div" />
           </div>
 
           <div>
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <Field type="password" name="confirmPassword" />
-            <ErrorMessage name="confirmPassword" component="div" />
+            <Field className='input' type="password" name="confirmPassword" placeholder="Confirm password"/>
+            <ErrorMessage className='message-error' name="confirmPassword" component="div" />
           </div>
 
-          <button type="submit">Submit</button>
+          <button className='btn-register' type="submit">Registration</button>
         </Form>
           </Formik>
-              <div>Already have an account? <NavLink className="btn-register-color" to="login">Login</NavLink></div>
-              </div>
-    </div>
+              <div className='text-change'>Already have an account? <NavLink className="change-link" to="login">Login</NavLink></div>
+              </FormWrap>
+    </MainFormWrap>
   );
 };
 
