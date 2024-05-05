@@ -1,4 +1,4 @@
-import {requestLogin, requestRegister, requestlogout } from "services/api";
+import {requestLogin, requestRegister, requestUserCurrent, requestlogout, setToken } from "services/api";
 import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { toastFulfild, toastRejected } from "../../services/notify";
 
@@ -44,9 +44,34 @@ export const logoutUser = createAsyncThunk(
   }
 );
 
+export const usersCurrentThunk = createAsyncThunk(
+  "user/refresh",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+
+    try {
+      setToken(state.auth.token);
+      const respons = await requestUserCurrent();
+      return respons;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+  {
+    condition: (_, thunkAPI) => {
+      const state = thunkAPI.getState();
+      const token = state.auth.token;
+      if (!token) return false;
+
+      return true;
+    },
+  }
+);
+
 
 
 const INITIAL_STATE = {
+  user: null,
     email: null,
     name: null,
   token: null,
@@ -65,15 +90,21 @@ const userSlice = createSlice({
       // ------------ Register User ----------------------
       .addCase(apiUserRegister.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.name = action.payload.name;
-        state.email = action.payload.email;
+        state.user = action.payload;
+        state.token = action.payload.token;
+        state.isSignedIn = true;
+      })
+
+      .addCase(usersCurrentThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSignedIn = true;
+        state.user = action.payload;
       })
 
       // ------------ Login User ----------------------
       .addCase(apiUserLogin.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.name = action.payload.name;
-        state.email = action.payload.email;
+        state.user = action.payload;
         state.token = action.payload.token;
         state.isSignedIn = true;
       })

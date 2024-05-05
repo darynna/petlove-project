@@ -27,6 +27,11 @@ export const requestlogout = async () => {
   return data;
 };
 
+export const requestUserCurrent = async () => {
+  const { data } = await authInstance.get("users/current");
+  return data;
+};
+
 //Friends
 export const requestFriends = async () => {
   const { data } = await authInstance.get("/friends");
@@ -35,7 +40,24 @@ export const requestFriends = async () => {
 
 //News
 
-export const requestNews = async () => {
-  const { data } = await authInstance.get("/news");
+export const requestNews = async (page) => {
+  const { data } = await authInstance.get(`/news?page=${page}`);
+  return data;
+};
+
+//notices
+
+export const requestNotices = async (page) => {
+  const { data } = await authInstance.get(`/notices?page=${page}`);
+  return data;
+};
+
+export const requestAddNotice = async (id) => {
+  const { data } = await authInstance.post(`notices/favorites/add/${id}`);
+  return data;
+};
+
+export const requestdeleteNotice = async (id) => {
+  const { data } = await authInstance.post(`notices/favorites/remove/${id}`);
   return data;
 };

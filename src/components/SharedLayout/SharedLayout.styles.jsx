@@ -12,7 +12,7 @@ max-width: 320px;
   padding: 0 12px;
 }
 @media (min-width: 768px) {
-  max-width: 1216px;
+  max-width: 1152px;
 }
 
 

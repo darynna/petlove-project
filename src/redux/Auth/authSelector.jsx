@@ -1,2 +1,2 @@
 export const selectUserIsSignedIn = (state) => state.auth.isSignedIn;
-export const selectUserName = (state) => state.auth.name;
+export const selectUser = (state) => state.auth.user;

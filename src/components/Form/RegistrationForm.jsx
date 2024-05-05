@@ -25,7 +25,8 @@ export const RegisterForm = () => {
         initialValues={{
           name: '',
           email: '',
-          password: '',
+            password: '',
+          confirmPassword: ''
         }}
         validationSchema={Yup.object({
           name: Yup.string().required('Enter a valid name'),

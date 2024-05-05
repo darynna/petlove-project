@@ -16,7 +16,7 @@ import { infoReducer } from "./Info/InfoSlice";
 
 const persistConfig = {
   key: "user",
-  whitelist: ["token", "isSignedIn"],
+  whitelist: ["token", "isSignedIn", "user"],
   storage,
 };
 

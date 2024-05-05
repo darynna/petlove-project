@@ -8,8 +8,16 @@ import { NoticePage } from 'pages/NoticePage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { RegisterPage } from 'pages/RegisterPage';
 import { SharedLayout } from './SharedLayout/SharedLayout';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { usersCurrentThunk } from '../redux/Auth/authSlice';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(usersCurrentThunk());
+  }, [dispatch]);
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>

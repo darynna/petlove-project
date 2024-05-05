@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 //Item
-export const FriendItem = styled.div`
+export const FriendItem = styled.li`
 width: 290px;
 padding: 40px 20px;
 display: flex;
@@ -36,15 +36,28 @@ border-radius: 15px;
 
 //List
 
-export const FriendsListStyled = styled.div`
+export const FriendsListStyled = styled.ul`
 display: flex;
 flex-direction: column;
 gap: 20px;
 justify-content: center;
+padding: 0;
+align-items: center;
 
 @media screen and (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
 }
 
+`
+
+//Main Title
+
+export const FriendsTitle = styled.h3`
+font-weight: 700;
+font-size:28px;
+
+@media screen and (min-width: 768px) {
+    font-size:54px;
+}
 `
