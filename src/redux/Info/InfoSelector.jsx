@@ -1,0 +1,1 @@
+export const selectFriends = (state) => state.info.friends;

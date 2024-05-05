@@ -1,6 +1,6 @@
 import {requestFriends, requestNews } from "services/api";
 import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { toastFulfild, toastRejected } from "../../services/notify";
+import { toastRejected } from "../../services/notify";
 
 export const apiGetFriends = createAsyncThunk(
   "user/friends",
@@ -37,7 +37,7 @@ const INITIAL_STATE = {
   error: null
 };
 
-const userSlice = createSlice({
+const infoSlice = createSlice({
   name: "info",
   initialState: INITIAL_STATE,
 
@@ -49,11 +49,11 @@ const userSlice = createSlice({
       // ------------ Get friends ----------------------
       .addCase(apiGetFriends.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.friends = action.payload.friends;
+        state.friends = action.payload;
       })
         .addCase(apiGetNews.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.news = action.payload.news;
+        state.news = action.payload;
       })
       .addMatcher(
         isAnyOf(
@@ -76,4 +76,4 @@ const userSlice = createSlice({
         }
       ),
 });
-export const userReducer = userSlice.reducer;
+export const infoReducer = infoSlice.reducer;
