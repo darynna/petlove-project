@@ -1,13 +1,16 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import loginImageDesktop from '../../assets/img/login-desktop.jpeg'; 
 import loginImageTablet from "../../assets/img/login-tablet.jpeg";
 import loginImagePhone from "../../assets/img/login-phone.jpeg";
 import { Image, ImgWrap, MainFormWrap, FormWrap } from './Form.styled';
+import { apiUserLogin } from '../../redux/Auth/authSlice';
 
 const LoginForm = () => {
+   const dispatch = useDispatch();
   return (
       <MainFormWrap>
            <ImgWrap>
@@ -28,10 +31,9 @@ const LoginForm = () => {
           password: Yup.string().required('Required'),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+          const formData = { email: values.email, password: values.password };
+      dispatch(apiUserLogin(formData));
             setSubmitting(false);
-          }, 400);
         }}
       >
         <Form>

@@ -1,5 +1,7 @@
 import { AuthNav } from 'components/Header/AuthNav';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectUserIsSignedIn } from '../../redux/Auth/authSelector';
 import { ReactComponent as CloseIcon } from '../../assets/icons/close-btn.svg';
 import { ReactComponent as OpenIcon } from '../../assets/icons/open-btn.svg';
 import { ReactComponent as HeartIcon } from '../../assets/icons/logo-heart.svg';
@@ -16,9 +18,11 @@ import {
     ListSecondary,
     Wrap
 } from './Header.styled';
+import { UserNav } from './UserNav';
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const isSignedIn = useSelector(selectUserIsSignedIn)
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -35,7 +39,11 @@ export const Header = () => {
           </LogoDesign>
         </NavLinkStyled>
         <NavLinkAuth $isOpen={menuOpen}>
-            <AuthNav />
+             {isSignedIn ? (
+                  <UserNav/>
+                ) : (
+                    <AuthNav />
+                )}
         </NavLinkAuth>
         <BurgerMenuOpen
           $isOpen={menuOpen}
@@ -64,8 +72,12 @@ export const Header = () => {
                 </NavLinkItem>
               </ListSecondary>
             </li>
-            <li>
-              <AuthNav />
+              <li>
+                {isSignedIn ? (
+                  <UserNav/>
+                ) : (
+                    <AuthNav />
+                )}
             </li>
                       </NavLinks>
                       </Wrap> 

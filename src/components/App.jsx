@@ -3,9 +3,9 @@ import { FriendsPage } from 'pages/FriendsPage';
 // import { AddPetsPage } from 'pages/AddPetsPage';
 import { HomePage } from 'pages/HomePage';
 import { LoginPage } from 'pages/LoginPage';
-// import { newsPage } from 'pages/NewsPage';
+import { NewsPage } from 'pages/NewsPage';
 import { NoticePage } from 'pages/NoticePage';
-// import { ProfilePage } from 'pages/ProfilePage';
+import { ProfilePage } from 'pages/ProfilePage';
 import { RegisterPage } from 'pages/RegisterPage';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 
@@ -18,9 +18,10 @@ export const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
 
-        <Route path="/news" element={<newsPage />} />
+        <Route path="/news" element={<NewsPage />} />
         <Route path="/notices" element={<NoticePage />} />
         <Route path="/friends" element={<FriendsPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>

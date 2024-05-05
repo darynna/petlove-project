@@ -1,4 +1,4 @@
-import { requestUserCurrent, requestLogin, requestRegister, requestlogout } from "services/api";
+import {requestLogin, requestRegister, requestlogout } from "services/api";
 import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { toastFulfild, toastRejected } from "../../services/notify";
 
@@ -35,6 +35,7 @@ export const logoutUser = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       await requestlogout();
+       toastFulfild("You have successfully logged out your account!");
       return;
     } catch (error) {
       toastRejected("Something went wrong, please try again later!");
@@ -43,12 +44,11 @@ export const logoutUser = createAsyncThunk(
   }
 );
 
+
+
 const INITIAL_STATE = {
-  user: {
-    id: null,
     email: null,
     name: null,
-  },
   token: null,
   isLoading: false,
   error: null,
@@ -65,17 +65,21 @@ const userSlice = createSlice({
       // ------------ Register User ----------------------
       .addCase(apiUserRegister.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user.email = action.payload.user;
+        state.name = action.payload.name;
+        state.email = action.payload.email;
       })
 
       // ------------ Login User ----------------------
       .addCase(apiUserLogin.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = action.payload.user;
+        state.name = action.payload.name;
+        state.email = action.payload.email;
         state.token = action.payload.token;
         state.isSignedIn = true;
       })
-     
+     .addCase(logoutUser.fulfilled, (state, action) => {
+        return INITIAL_STATE;
+      })
       .addMatcher(
         isAnyOf(
           apiUserRegister.pending,

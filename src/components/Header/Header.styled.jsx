@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const Menu = styled.nav`
+width: 100%;
   display: flex;
   padding: 44px 32px;
   justify-content: space-between;
@@ -83,7 +84,7 @@ const MenuDiv = styled.div`
         `}
   }
 
-  .burger-menu{
+  .burger-menu {
     position: absolute;
     right: 12px;
     top: 12px;
@@ -115,12 +116,12 @@ const NavLinkItem = styled.li`
     }
   }
 
-  .btn-login-color{
-    color: #FFFFFF;
+  .btn-login-color {
+    color: #ffffff;
   }
 
-  .btn-register-color{
-    color: #F6B83D;
+  .btn-register-color {
+    color: #f6b83d;
   }
 `;
 
@@ -129,8 +130,6 @@ const NavLinkStyled = styled(NavLink)`
   color: #333;
   font-weight: bold;
   transition: color 0.3s ease;
-
-
 `;
 
 const NavLinkAuth = styled.div`
@@ -161,6 +160,7 @@ list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
+    align-items: center;
     
 
      @media screen and (max-width: 768px) {
@@ -191,6 +191,34 @@ list-style: none;
 
     }
 
+    .btn-logout{
+      padding: 12px 60px;
+      border: none;
+      font-size: 14px;
+      border-radius: 30px;
+        background-color: rgb(255, 244, 223);
+        color:rgb(246, 184, 61);
+ &:hover{
+            background-color: #FBE7C1;
+        }
+    }
+
+    .name{
+      font-weight: 700;
+      
+    }
+
+    .icon{
+      padding: 13px;
+      background-color: rgb(255, 244, 223);
+      border-radius: 30px;
+    }
+
+    .link{
+      text-decoration: none;
+      color: black
+    }
+
     @media screen and (min-width: 768px) {
         .btn-login{
         width: 120px;
@@ -199,6 +227,10 @@ list-style: none;
     .btn-register{
         width: 150px;
     }
+
+     .btn-logout{
+      font-size: 18px;
+     }
     }
     }
 `;

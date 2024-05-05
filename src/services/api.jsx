@@ -16,17 +16,26 @@ export const requestRegister = async (formData) => {
 };
 
 export const requestLogin = async (formData) => {
-  const { data } = await authInstance.post("users/login", formData);
+  const { data } = await authInstance.post("users/signin", formData);
   setToken(data.token);
   return data;
 };
 
-export const requestUserCurrent = async () => {
-  const { data } = await authInstance.get("users");
+
+export const requestlogout = async () => {
+  const { data } = await authInstance.post("users/signout");
   return data;
 };
 
-export const requestlogout = async () => {
-  const { data } = await authInstance.post("users/logout");
+//Friends
+export const requestFriends = async () => {
+  const { data } = await authInstance.get("/friends");
+  return data;
+};
+
+//News
+
+export const requestNews = async () => {
+  const { data } = await authInstance.get("/news");
   return data;
 };
