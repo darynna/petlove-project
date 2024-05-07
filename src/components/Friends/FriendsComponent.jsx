@@ -4,6 +4,7 @@ import { selectFriends } from "../../redux/Info/InfoSelector";
 import { apiGetFriends } from "../../redux/Info/InfoSlice";
 import { FriendsList } from "./FriendsList";
 import { FriendsTitle } from "./Friends.styled";
+import Loader from "components/Loader/Loader";
 
 export const FriendsComponent = () => {
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export const FriendsComponent = () => {
              {friends ? (
                   <FriendsList friends={friends}/>
                 ) : (
-                    <div>Loading</div>
+                    <Loader/>
                 )}
         </div>
     )

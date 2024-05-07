@@ -56,6 +56,7 @@ align-items: center;
 export const FriendsTitle = styled.h3`
 font-weight: 700;
 font-size:28px;
+margin-bottom: 60px;
 
 @media screen and (min-width: 768px) {
     font-size:54px;

@@ -28,7 +28,7 @@ export const requestlogout = async () => {
 };
 
 export const requestUserCurrent = async () => {
-  const { data } = await authInstance.get("users/current");
+  const { data } = await authInstance.get("users/current/full");
   return data;
 };
 
@@ -58,6 +58,6 @@ export const requestAddNotice = async (id) => {
 };
 
 export const requestdeleteNotice = async (id) => {
-  const { data } = await authInstance.post(`notices/favorites/remove/${id}`);
+  const { data } = await authInstance.delete(`notices/favorites/remove/${id}`);
   return data;
 };

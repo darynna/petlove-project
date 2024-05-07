@@ -6,6 +6,7 @@ import { apiGetNews } from "../../redux/Info/InfoSlice";
 import { NewsList } from "./NewsList";
 import Pagination from '@mui/material/Pagination';
 import { MainNewsListStyled, NewsTitle } from "./News.styled";
+import Loader from "components/Loader/Loader";
 
 export const NewsComponent = () => {
     const dispatch = useDispatch();
@@ -31,7 +32,7 @@ export const NewsComponent = () => {
                     <Pagination count={news.totalPages} page={currentPage} onChange={handlePageChange} variant="outlined" color="primary" />
                     </>
                 ) : (
-                    <div>Loading</div>
+                   <Loader/>
             )}
             </MainNewsListStyled>
             </>

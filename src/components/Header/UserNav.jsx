@@ -1,4 +1,4 @@
-import { ListSecondary, NavLinkStyled, NavLinkItem } from "./Header.styled";
+import { ListSecondary} from "./Header.styled";
 import { ReactComponent as UserIcon } from '../../assets/icons/avatar.svg';
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../redux/Auth/authSlice";

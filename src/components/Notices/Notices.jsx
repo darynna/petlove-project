@@ -4,13 +4,17 @@ import { apiGetNotices } from "../../redux/Info/InfoSlice";
 import { selectNotices } from "../../redux/Info/InfoSelector";
 import { NoticesList } from "./NoticesList";
 import Pagination from '@mui/material/Pagination';
-import { NoticeTitle,  MainNoticesListStyled } from "./Notices.styled";
+import { NoticeTitle, MainNoticesListStyled } from "./Notices.styled";
+import { selectUser } from "../../redux/Auth/authSelector";
+import Loader from "components/Loader/Loader";
 
 export const NoticesComponent = () => {
     const dispatch = useDispatch();
     const notices = useSelector(selectNotices);
+    const user = useSelector(selectUser);
     const [currentPage, setCurrentPage] = useState(1);
-    console.log(notices)
+    console.log(notices);
+    console.log(user)
 
     const handlePageChange = (event, newPage) => {
         setCurrentPage(newPage); 
@@ -26,11 +30,11 @@ export const NoticesComponent = () => {
         < MainNoticesListStyled>
             {notices ? (
                 <>
-                <NoticesList notices={notices.results} />
+                        <NoticesList notices={notices.results} user={user} />
                     <Pagination count={notices.totalPages} page={currentPage} onChange={handlePageChange} variant="outlined" color="primary" />
                     </>
                 ) : (
-                    <div>Loading</div>
+                    <Loader/>
             )}
             </MainNoticesListStyled>
             </>
