@@ -27,12 +27,14 @@ export const NoticeItem = ({ notice, isLiked }) => {
     const [isFavorite, setIsFavorite] = useState(isLiked);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isLearnMoreModalOpen, setLearnMoreIsModalOpen] = useState(false);
-    const isSignedIn = useSelector(selectUserIsSignedIn)
+  const isSignedIn = useSelector(selectUserIsSignedIn);
 
     const handleAddToFavorite = () => {
         if (isSignedIn) {
             dispatch(apiAddNoticeToFavorites(_id));
-            setIsFavorite(true);
+          setIsFavorite(true);
+            
+            
         } else {
             setIsModalOpen(true);
         }
@@ -41,6 +43,7 @@ export const NoticeItem = ({ notice, isLiked }) => {
   const handleRemoveFromFavorite = () => {
     dispatch(apiRemoveNoticeFromFavorites(_id));
     setIsFavorite(false);
+      
     }; 
       const closeModal = () => {
         setIsModalOpen(false);

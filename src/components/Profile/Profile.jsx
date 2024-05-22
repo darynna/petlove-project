@@ -1,7 +1,15 @@
+import { ProfileNotices } from "./MyNotices"
+import { ProfileWrapStyled } from "./Profile.styled"
 import { UserCard } from "./UserCard"
 
 export const ProfileComponent = () => {
-    <div>
-    <UserCard/>
+    return (
+        <div>
+            <ProfileWrapStyled>
+                <UserCard />
+            </ProfileWrapStyled>
+    
+            <ProfileNotices/>
 </div>
+)
 }

@@ -22,7 +22,6 @@ export const apiGetNews = createAsyncThunk(
       const userData = await requestNews(page);
       return userData;
     } catch (error) {
-      toastRejected("Something went wrong, please try again later!");
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -69,6 +68,8 @@ export const apiRemoveNoticeFromFavorites = createAsyncThunk(
 );
 
 
+
+
 const INITIAL_STATE = {
   friends: null,
   news: null,
@@ -104,7 +105,7 @@ const infoSlice = createSlice({
       })
       .addCase(apiRemoveNoticeFromFavorites.fulfilled, (state, action) => {
         state.isLoading = false;
-         })
+      })
       .addMatcher(
         isAnyOf(
             apiGetFriends.pending,

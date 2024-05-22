@@ -1,4 +1,4 @@
-import {requestLogin, requestRegister, requestUserCurrent, requestlogout, setToken } from "services/api";
+import {requestLogin, requestRegister, requestUpdateCurrentUser, requestUserCurrent, requestlogout, setToken } from "services/api";
 import { createAsyncThunk, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { toastFulfild, toastRejected } from "../../services/notify";
 
@@ -68,6 +68,22 @@ export const usersCurrentThunk = createAsyncThunk(
   }
 );
 
+export const apiUpdateUserInfo = createAsyncThunk(
+  "user/updateUser",
+  async (data, thunkApi) => {
+    try {
+      console.log(data)
+      const userData = await requestUpdateCurrentUser(data);
+      toastFulfild("User info updated successfully!");
+      return userData;
+    } catch (error) {
+      toastRejected("Error");
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+
 
 
 const INITIAL_STATE = {
@@ -110,11 +126,16 @@ const userSlice = createSlice({
       })
      .addCase(logoutUser.fulfilled, (state, action) => {
         return INITIAL_STATE;
-      })
+     })
+       .addCase(apiUpdateUserInfo.fulfilled, (state, action) => {
+         state.isLoading = false;
+         state.user = action.payload
+         })
       .addMatcher(
         isAnyOf(
           apiUserRegister.pending,
           apiUserLogin.pending,
+          apiUpdateUserInfo.pending
         ),
         (state) => {
           state.isLoading = true;
@@ -125,6 +146,7 @@ const userSlice = createSlice({
         isAnyOf(
           apiUserRegister.rejected,
           apiUserLogin.rejected,
+          apiUpdateUserInfo.rejected
         ),
         (state) => {
           state.isLoading = false;

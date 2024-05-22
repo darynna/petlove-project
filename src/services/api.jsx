@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toastRejected } from "./notify";
 
 export const authInstance = axios.create({
   baseURL: "https://petlove.b.goit.study/api",
@@ -30,6 +31,18 @@ export const requestlogout = async () => {
 export const requestUserCurrent = async () => {
   const { data } = await authInstance.get("users/current/full");
   return data;
+};
+
+export const requestUpdateCurrentUser = async (info) => {
+  try {
+    console.log("Updating user with info:", info);
+    const { data } = await authInstance.patch("users/current/edit", info);
+    console.log("Updated user data:", data);
+    return data;
+  } catch (error) {
+     toastRejected("Error updating user info:", error.response ? error.response.data : error.message);
+    throw error;
+  }
 };
 
 //Friends
