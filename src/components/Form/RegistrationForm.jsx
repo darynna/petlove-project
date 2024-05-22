@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import registrationImageDesktop from '../../assets/img/registration-desktop.jpeg'; 
 import registrationImageTablet from "../../assets/img/registration-tablet.jpeg"
 import registrationImagePhone from "../../assets/img/registration-phone.jpeg";
@@ -10,7 +10,8 @@ import { apiUserRegister } from '../../redux/Auth/authSlice';
 import { useDispatch} from "react-redux";
 
 export const RegisterForm = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
       <MainFormWrap>
           <ImgWrap>
@@ -40,9 +41,15 @@ export const RegisterForm = () => {
         })}
         onSubmit={(values, { setSubmitting }) => {
             const formData = {name: values.name, email: values.email, password: values.password };
-            console.log(formData);
-           dispatch(apiUserRegister(formData));
-            setSubmitting(false);
+           dispatch(apiUserRegister(formData))
+                            .then(() => {
+                                setSubmitting(false);
+                                navigate('/profile'); 
+                            })
+                            .catch((error) => {
+                                console.error('Registration failed:', error);
+                                setSubmitting(false);
+                            });
          
         }}
       >

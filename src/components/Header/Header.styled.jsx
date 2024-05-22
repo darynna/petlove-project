@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const Menu = styled.nav`
-width: 100%;
   display: flex;
   padding: 44px 32px;
   justify-content: space-between;
@@ -12,6 +11,21 @@ width: 100%;
 
   @media screen and (max-width: 768px) {
     padding: 32px 12px;
+  }
+
+  .home{
+    
+  }
+
+  .active-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none; 
+    width: 105px;
+    height: 48px;
+    background-color: rgb(246, 184, 61);
+    color: white;
   }
 `;
 
@@ -23,11 +37,7 @@ const BurgerMenuOpen = styled.button`
 
   @media screen and (max-width: 768px) {
     display: block;
-    ${({ $isOpen, ...props }) =>
-      $isOpen &&
-      `
-            display: none; 
-        `}
+    
   }
 `;
 
@@ -66,8 +76,8 @@ const NavLinks = styled.ul`
 const MenuDiv = styled.div`
   @media screen and (max-width: 768px) {
     display: none;
-    position: absolute;
-    top: 0px; /* Adjust as needed based on your header height */
+    position: fixed;
+    top: 0px;
     right: 0;
     background-color: #ffffff;
     width: 50%;
@@ -109,6 +119,10 @@ const NavLinkItem = styled.li`
   border: 1px solid rgba(38, 38, 38, 0.15);
   border-radius: 30px;
 
+  &:hover{
+            border: 1px solid rgb(246, 184, 61);
+        }
+
   @media screen and (min-width: 768px) {
     margin-right: 20px;
     &:last-child {
@@ -116,13 +130,28 @@ const NavLinkItem = styled.li`
     }
   }
 
+  .btn{
+display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px
+  }
+
   .btn-login-color {
     color: #ffffff;
+    width: 120px;
+    height: 50px;
+    
   }
 
   .btn-register-color {
     color: #f6b83d;
+    width: 152px;
+    height: 50px;
+
   }
+
+  
 `;
 
 const NavLinkStyled = styled(NavLink)`
@@ -130,6 +159,25 @@ const NavLinkStyled = styled(NavLink)`
   color: #333;
   font-weight: bold;
   transition: color 0.3s ease;
+  
+  
+`;
+
+const NavLinkStyledMain = styled(NavLink)`
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+    width: 120px;
+    height: 48px;
+    border: 1px solid rgba(38, 38, 38, 0.15);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  &.active-link {
+    border: 1px solid rgb(246, 184, 61);
+  }
 `;
 
 const NavLinkAuth = styled.div`
@@ -233,6 +281,10 @@ list-style: none;
      }
     }
     }
+
+    .active-link-profile{
+      border: none !important
+    }
 `;
 
 export {
@@ -247,4 +299,5 @@ export {
   MenuDiv,
   ListSecondary,
   Wrap,
+  NavLinkStyledMain
 };

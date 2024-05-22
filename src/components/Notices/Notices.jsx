@@ -13,8 +13,6 @@ export const NoticesComponent = () => {
     const notices = useSelector(selectNotices);
     const user = useSelector(selectUser);
     const [currentPage, setCurrentPage] = useState(1);
-    console.log(notices);
-    console.log(user)
 
     const handlePageChange = (event, newPage) => {
         setCurrentPage(newPage); 

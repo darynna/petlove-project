@@ -6,7 +6,7 @@ width: 287px;
 padding: 24px;
 background-color: white;
 border-radius: 30px;
-
+        margin-bottom: 44px;
 .image{
     width:287px;
     height: 178px;

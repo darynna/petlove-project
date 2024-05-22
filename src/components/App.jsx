@@ -11,6 +11,7 @@ import { SharedLayout } from './SharedLayout/SharedLayout';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { usersCurrentThunk } from '../redux/Auth/authSlice';
+import PrivateRoute from '../components/PrivateRout/PrivateRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ export const App = () => {
         <Route path="/news" element={<NewsPage />} />
         <Route path="/notices" element={<NoticePage />} />
         <Route path="/friends" element={<FriendsPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>

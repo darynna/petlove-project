@@ -12,7 +12,6 @@ export const NewsComponent = () => {
     const dispatch = useDispatch();
     const news = useSelector(selectNews);
     const [currentPage, setCurrentPage] = useState(1);
-    console.log(news)
 
     const handlePageChange = (event, newPage) => {
         setCurrentPage(newPage); 

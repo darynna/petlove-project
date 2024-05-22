@@ -13,12 +13,17 @@ border-radius: 15px;
 .title{
     font-size: 16px;
     font-weight: 700;
-
+   margin-bottom: 14px
 }
 
 .info{
     font-size: 14px;
     color: rgba(38, 38, 38, 0.5);
+    margin-bottom: 8px
+}
+
+.info-phone{
+     margin-bottom: 0px
 }
 
 .link{
