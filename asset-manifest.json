@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/petlove-project/static/css/main.0a6b9bfe.css",
-    "main.js": "/petlove-project/static/js/main.37959309.js",
+    "main.css": "/petlove-project/static/css/main.7b786366.css",
+    "main.js": "/petlove-project/static/js/main.59d34165.js",
     "static/media/desktop-home.jpeg": "/petlove-project/static/media/desktop-home.402e8e10a8e97963d2d3.jpeg",
     "static/media/tablet-home.jpeg": "/petlove-project/static/media/tablet-home.e30e34a914a3d3238926.jpeg",
     "static/media/registration-desktop.jpeg": "/petlove-project/static/media/registration-desktop.8d3ef33603acc1d903e8.jpeg",
@@ -11,18 +11,21 @@
     "static/media/login-tablet.jpeg": "/petlove-project/static/media/login-tablet.4c8fa7a5c4c257748a21.jpeg",
     "static/media/registration-phone.jpeg": "/petlove-project/static/media/registration-phone.396e4e92de5f18594989.jpeg",
     "static/media/login-phone.jpeg": "/petlove-project/static/media/login-phone.fe49871cd9291f6300e2.jpeg",
+    "static/media/user-02.svg": "/petlove-project/static/media/user-02.49d729f4785d0b97b6b81d47cb96292e.svg",
     "static/media/icon-star.svg": "/petlove-project/static/media/icon-star.f114ede3ca2f0d7ebdbfb9bd3103945f.svg",
     "static/media/avatar.svg": "/petlove-project/static/media/avatar.a89810ff2394bb5dc1492c882e1b1680.svg",
     "index.html": "/petlove-project/index.html",
     "static/media/heart-like.svg": "/petlove-project/static/media/heart-like.3a86656bae1740711e2e880fd3c48346.svg",
+    "static/media/edit-2.svg": "/petlove-project/static/media/edit-2.7ef101a3122c2657748f9c8d40d11af0.svg",
     "static/media/logo-heart.svg": "/petlove-project/static/media/logo-heart.e4c6c6489478aa541c63744333d9b995.svg",
+    "static/media/icon-logo-active.svg": "/petlove-project/static/media/icon-logo-active.67227d40599ba896d423cc6ddf6c5b68.svg",
     "static/media/open-btn.svg": "/petlove-project/static/media/open-btn.8e3c25979193d32c844567c9ceae0704.svg",
     "static/media/close-btn.svg": "/petlove-project/static/media/close-btn.9b2ee83c334dfb12dcb9289409cbf6a6.svg",
-    "main.0a6b9bfe.css.map": "/petlove-project/static/css/main.0a6b9bfe.css.map",
-    "main.37959309.js.map": "/petlove-project/static/js/main.37959309.js.map"
+    "main.7b786366.css.map": "/petlove-project/static/css/main.7b786366.css.map",
+    "main.59d34165.js.map": "/petlove-project/static/js/main.59d34165.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a6b9bfe.css",
-    "static/js/main.37959309.js"
+    "static/css/main.7b786366.css",
+    "static/js/main.59d34165.js"
   ]
 }

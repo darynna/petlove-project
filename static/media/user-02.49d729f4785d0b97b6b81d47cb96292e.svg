@@ -1,0 +1,17 @@
+<svg width="18.000000" height="18.000000" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip55822_7956">
+			<rect id="user-02" width="18.000000" height="18.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="user-02" width="18.000000" height="18.000000" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip55822_7956)">
+		<path id="Accent" d="M9 11.25C6.62 11.25 4.5 12.39 3.16 14.17C2.87 14.56 2.72 14.75 2.73 15.01C2.73 15.21 2.86 15.46 3.01 15.59C3.22 15.75 3.5 15.75 4.07 15.75L13.92 15.75C14.49 15.75 14.77 15.75 14.98 15.59C15.13 15.46 15.26 15.21 15.26 15.01C15.27 14.75 15.12 14.56 14.83 14.17C13.49 12.39 11.37 11.25 9 11.25Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+		<path id="Accent" d="M9 11.25C11.37 11.25 13.49 12.39 14.83 14.17C15.12 14.56 15.27 14.75 15.26 15.01C15.26 15.21 15.13 15.46 14.98 15.59C14.77 15.75 14.49 15.75 13.92 15.75L4.07 15.75C3.5 15.75 3.22 15.75 3.01 15.59C2.86 15.46 2.73 15.21 2.73 15.01C2.72 14.75 2.87 14.56 3.16 14.17C4.5 12.39 6.62 11.25 9 11.25Z" stroke="#FFFFFF" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round"/>
+		<path id="Icon" d="M12.37 5.62C12.37 7.48 10.86 9 9 9C7.13 9 5.62 7.48 5.62 5.62C5.62 3.76 7.13 2.25 9 2.25C10.86 2.25 12.37 3.76 12.37 5.62Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd"/>
+		<path id="Icon" d="M9 9C7.13 9 5.62 7.48 5.62 5.62C5.62 3.76 7.13 2.25 9 2.25C10.86 2.25 12.37 3.76 12.37 5.62C12.37 7.48 10.86 9 9 9Z" stroke="#FFFFFF" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round"/>
+	</g>
+</svg>
