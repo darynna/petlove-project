@@ -39,18 +39,15 @@ export const RegisterForm = () => {
             .oneOf([Yup.ref('password'), null], 'Passwords must match')
             .required('Repeat password'),
         })}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={async (values, { setSubmitting }) => {
             const formData = {name: values.name, email: values.email, password: values.password };
-           dispatch(apiUserRegister(formData))
-                            .then(() => {
-                                setSubmitting(false);
-                                navigate('/profile'); 
-                            })
-                            .catch((error) => {
-                                console.error('Registration failed:', error);
-                                setSubmitting(false);
-                            });
-         
+           try {
+              await dispatch(apiUserRegister(formData)).unwrap();
+              navigate('/profile');
+               setSubmitting(false);
+            } catch (error) {
+               setSubmitting(false);
+            } 
         }}
       >
         <Form>

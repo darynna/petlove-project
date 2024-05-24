@@ -31,19 +31,16 @@ const LoginForm = () => {
           email: Yup.string().email('Invalid email address').required('Required'),
           password: Yup.string().required('Required'),
         })}
-        onSubmit={(values, { setSubmitting }) => {
-          const formData = { email: values.email, password: values.password };
-          dispatch(dispatch(apiUserLogin(formData))
-                            .then(() => {
-                                setSubmitting(false);
-                                navigate('/profile'); 
-                            })
-                            .catch((error) => {
-                                console.error('Registration failed:', error);
-                                setSubmitting(false);
-                            })
-                          )
-        }}
+        onSubmit={async (values, { setSubmitting }) => {
+            const formData = { email: values.email, password: values.password };
+            try {
+              await dispatch(apiUserLogin(formData)).unwrap();
+              navigate('/profile');
+               setSubmitting(false);
+            } catch (error) {
+               setSubmitting(false);
+            } 
+          }}
       >
         <Form>
           <div>
