@@ -1,112 +1,85 @@
-# React homework template
+# PetLove
 
-Цей проект був створений за допомогою
-[Create React App](https://github.com/facebook/create-react-app). Для знайомства
-і налаштування додаткових можливостей
-[звернися до документації](https://facebook.github.io/create-react-app/docs/getting-started).
+PetLove is a web application designed to connect pet lovers with their favorite
+pets. Users can browse, favorite, and adopt pets through the platform.
 
-## Створення репозиторію за шаблоном
+## Features
 
-Використовуй цей репозиторій організації GoIT як шаблон для створення репозиторію
-свого проєкта. Для цього натисни на кнопку `«Use this template»` і вибери опцію
-`«Create a new repository»`, як показано на зображенні.
+- **User Authentication:** Secure user registration and login.
+- **Pet Browsing:** Browse pets available for adoption with detailed
+  information.
+- **Favorites:** Add pets to your favorites list.
+- **Profile Management:** Manage user profiles and view favorite pets.
+- **Responsive Design:** Optimized for desktop, tablet, and mobile views.
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+## Technologies
 
-На наступному кроці відкриється сторінка створення нового репозиторію. Заповни поле
-його імені, переконайся що репозиторій публічний, після чого натисни кнопку
-`«Create repository from template»`.
+### Frontend
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+- React
+- Redux
+- Formik
+- Yup
+- Styled-Components
 
-Після того як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як
-показано на зображенні.
+### Backend
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+- Node.js
+- Express
 
-Проскроливши сторінку до самого кінця, у секції `«Workflow permissions»` вибери
-опцію `«Read and write permissions»` і постав галочку в чекбоксі. Це
-необхідно для автоматизації процесу деплою проєкту.
+### Database
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+- MongoDB
 
-Тепер у тебе є особистий репозиторій проекту, зі структурою файлів і папок
-репозиторію-шаблону. Далі працюй із ним як із будь-яким іншим особистим репозиторієм,
-клонуй його собі на комп'ютер, пиши код, роби комміти і відправляй їх на
-GitHub.
+### Authentication
 
-## Підготовка до роботи
+- JSON Web Tokens (JWT)
 
-1. Переконайся що на комп'ютері встановлено LTS-версія Node.js.
-   [Завантаж і встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встанови базові залежності проєкту командою `npm install`.
-3. Запусти режим розробки, виконавши команду `npm start`.
-4. Перейди в браузері за адресою [http://localhost:3000](http://localhost:3000).
-   Ця сторінка буде автоматично перезавантажуватися після збереження змін у файлах проєкту.
+### Other Tools
 
-## Деплой
+- Axios
+- React Router
 
-Продакшн версія проєкту буде автоматично проходити лінтинг, збиратися і
-деплоїтися на GitHub Pages, у гілку `gh-pages`, щоразу, коли оновлюється
-гілка `main`. Наприклад, після прямого пушу або прийнятого пул-реквесту. Для цього
-необхідно у файлі `package.json` відредагувати поле `homepage`, замінивши
-`your_username` і `your_repo_name` на свої, і відправити зміни на GitHub.
+## Usage
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+1. Register a new user or log in with existing credentials.
+2. Browse available pets and add them to your favorites.
+3. View and manage your profile and favorite pets.
 
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) і
-виставити роздачу продакшн-версії файлів із папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
+## API Endpoints
 
-![GitHub Pages settings](./assets/repo-settings.png)
+### Authentication
 
-### Статус деплоя
+- `POST /api/users/signup`: Register a new user.
+- `POST /api/users/signin`: Log in an existing user.
 
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
+### Users
 
-- **Жовтий колір** - виконується збірка і деплой проєкту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час лінтингу, сборки або деплою сталася помилка.
+- `GET /api/users/current/full`: Get current user full details.
+- `PATCH /api/users/current/edit`: Update user profile details.
 
-Детальнішу інформацію про статус можна подивитися, клікнувши на іконку, і
-у вікні, що випадає, перейти за посиланням `Details`.
+### Pets
 
-![Deployment status](./assets/deploy-status.png)
+- `GET /api/notices`: Get a list of available pets.
+- `GET /api/notices/:id`: Get details of a specific pet.
+- `POST /api/notices/favorites/add/{id}`: Add a pet to favorites.
+- `DELETE /api/notices/favorites/remove/{id}`: Remove a pet from favorites.
 
-### Жива сторінка
+## Contributing
 
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися
-за адресою, вказаною у відредагованій властивості `homepage`. Наприклад, ось
-посилання на живу версію для цього репозиторію
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
+Contributions are what make the open-source community such an amazing place to
+learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-Якщо відкривається порожня сторінка, переконайся, що у вкладці `Console` немає помилок
-пов'язаних із неправильними шляхами до CSS і JS файлів проєкту (**404**). Швидше 
-за все у тебе неправильне значення властивості `homepage` у файлі `package.json`.
+### How to Contribute
 
-### Маршрутизація
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Якщо додаток використовує бібліотеку `react-router-dom` для маршрутизації,
-необхідно додатково налаштувати компонент `<BrowserRouter>`, передавши у пропе
-`basename` точну назву твого репозиторію. Слеш на початку рядка обов'язковий.
+## Contact
 
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-
-## Як це працює
-
-![How it works](./assets/how-it-works.png)
-
-1. Після кожного пушу в гілку `main` GitHub-репозиторія, запускається спеціальний
-   скрипт (GitHub Action) з файла `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проект ініціалізується і
-   проходить лінтинг і збірку перед деплоєм.
-3. Якщо всі кроки пройшли успішно, зібрана продакшн-версія файлів проєкту
-   відправляється в гілку `gh-pages`. В іншому випадку, в лозі виконання
-   скрипта буде вказано в чому проблема.
+- Your Name
+- Email: dgolikova0@gmail.com
+- Project Link: [PetLove Project](https://darynna.github.io/petlove-project/)
