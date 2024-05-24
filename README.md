@@ -80,6 +80,6 @@ learn, inspire, and create. Any contributions you make are greatly appreciated.
 
 ## Contact
 
-- Your Name
+- Your Name: Daryna Holikova
 - Email: dgolikova0@gmail.com
 - Project Link: [PetLove Project](https://darynna.github.io/petlove-project/)
