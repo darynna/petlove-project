@@ -60,13 +60,13 @@ export const requestNews = async (page) => {
 
 //notices
 
-export const requestNotices = async (page) => {
-  const { data } = await authInstance.get(`/notices?page=${page}`);
+export const requestAddNotice = async (id) => {
+  const { data } = await authInstance.post(`notices/favorites/add/${id}`);
   return data;
 };
 
-export const requestAddNotice = async (id) => {
-  const { data } = await authInstance.post(`notices/favorites/add/${id}`);
+export const requestNotices = async (page) => {
+  const { data } = await authInstance.get(`/notices?page=${page}`);
   return data;
 };
 
