@@ -12,7 +12,7 @@ export const ProfileNotices = () => {
 
     useEffect(() => {
         dispatch(usersCurrentThunk());
-    }, [dispatch, user.noticesFavorites]);
+    }, [dispatch]);
 
     return (
         <UserNoticesStyled>

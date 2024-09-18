@@ -10,7 +10,7 @@ export const apiUserRegister = createAsyncThunk(
       toastFulfild("User successfully created!");
       return userData;
     } catch (error) {
-      toastRejected("Something went wrong, please try again later!");
+      toastRejected(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -24,7 +24,7 @@ export const apiUserLogin = createAsyncThunk(
       toastFulfild("You have successfully logged into your account!");
       return userData;
     } catch (error) {
-      toastRejected("Something went wrong, please try again later!");
+      toastRejected(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -38,11 +38,12 @@ export const logoutUser = createAsyncThunk(
        toastFulfild("You have successfully logged out your account!");
       return;
     } catch (error) {
-      toastRejected("Something went wrong, please try again later!");
+      toastRejected(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
 );
+
 
 export const usersCurrentThunk = createAsyncThunk(
   "user/refresh",
@@ -68,6 +69,7 @@ export const usersCurrentThunk = createAsyncThunk(
   }
 );
 
+
 export const apiUpdateUserInfo = createAsyncThunk(
   "user/updateUser",
   async (data, thunkApi) => {
@@ -88,8 +90,6 @@ export const apiUpdateUserInfo = createAsyncThunk(
 
 const INITIAL_STATE = {
   user: null,
-    email: null,
-    name: null,
   token: null,
   isLoading: false,
   error: null,
@@ -111,6 +111,7 @@ const userSlice = createSlice({
         state.isSignedIn = true;
       })
 
+    // ------------ Get current User ----------------------
       .addCase(usersCurrentThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSignedIn = true;
@@ -124,18 +125,22 @@ const userSlice = createSlice({
         state.token = action.payload.token;
         state.isSignedIn = true;
       })
-     .addCase(logoutUser.fulfilled, (state, action) => {
+      // ------------Update User ----------------------
+      .addCase(logoutUser.fulfilled, (state, action) => {
         return INITIAL_STATE;
      })
        .addCase(apiUpdateUserInfo.fulfilled, (state, action) => {
          state.isLoading = false;
          state.user = action.payload
-         })
+       })
+      
       .addMatcher(
         isAnyOf(
           apiUserRegister.pending,
           apiUserLogin.pending,
-          apiUpdateUserInfo.pending
+          apiUpdateUserInfo.pending,
+          usersCurrentThunk.pending
+
         ),
         (state) => {
           state.isLoading = true;
@@ -146,7 +151,8 @@ const userSlice = createSlice({
         isAnyOf(
           apiUserRegister.rejected,
           apiUserLogin.rejected,
-          apiUpdateUserInfo.rejected
+          apiUpdateUserInfo.rejected,
+          usersCurrentThunk.rejected
         ),
         (state) => {
           state.isLoading = false;

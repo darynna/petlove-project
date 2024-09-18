@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { selectUserIsSignedIn } from '../../redux/Auth/authSelector';
 
 const PrivateRoute = ({ children }) => {
-    const isAuthenticated  = useSelector(selectUserIsSignedIn);
+    const isAuthenticated = useSelector(selectUserIsSignedIn);
     return isAuthenticated ? <>{children}</> : <Navigate to="/" />;
 };
 

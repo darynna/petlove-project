@@ -9,9 +9,11 @@ import { ProfilePage } from 'pages/ProfilePage';
 import { RegisterPage } from 'pages/RegisterPage';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { usersCurrentThunk } from '../redux/Auth/authSlice';
 import PrivateRoute from '../components/PrivateRout/PrivateRoute';
+import Loader from './Loader/Loader';
+import RestrictedRoute from './PrivateRout/RestrictedRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -20,11 +22,12 @@ export const App = () => {
     dispatch(usersCurrentThunk());
   }, [dispatch]);
   return (
+    <Suspense fallback={<Loader />}>
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route index element={<RestrictedRoute><LoginPage /></RestrictedRoute>} />
+       <Route path="/register" element={<RestrictedRoute><RegisterPage /></RestrictedRoute>} />
+       <Route path="/login" element={ <RestrictedRoute><LoginPage /></RestrictedRoute>} />
         <Route path="/home" element={<HomePage />} />
 
         <Route path="/news" element={<NewsPage />} />
@@ -33,7 +36,8 @@ export const App = () => {
         <Route path="/profile" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
-    </Routes>
+      </Routes>
+      </Suspense>
   );
 };
 

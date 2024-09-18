@@ -13,6 +13,7 @@ export const setToken = (token) => {
 export const requestRegister = async (formData) => {
   const { data } = await authInstance.post("users/signup", formData);
   setToken(data.token);
+  console.log(data)
   return data;
 };
 
