@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/petlove-project/static/css/main.7b786366.css",
-    "main.js": "/petlove-project/static/js/main.251ee47b.js",
+    "main.js": "/petlove-project/static/js/main.dc82a592.js",
     "static/media/desktop-home.jpeg": "/petlove-project/static/media/desktop-home.402e8e10a8e97963d2d3.jpeg",
     "static/media/tablet-home.jpeg": "/petlove-project/static/media/tablet-home.e30e34a914a3d3238926.jpeg",
     "static/media/registration-desktop.jpeg": "/petlove-project/static/media/registration-desktop.8d3ef33603acc1d903e8.jpeg",
@@ -21,10 +21,10 @@
     "static/media/open-btn.svg": "/petlove-project/static/media/open-btn.8e3c25979193d32c844567c9ceae0704.svg",
     "static/media/close-btn.svg": "/petlove-project/static/media/close-btn.9b2ee83c334dfb12dcb9289409cbf6a6.svg",
     "main.7b786366.css.map": "/petlove-project/static/css/main.7b786366.css.map",
-    "main.251ee47b.js.map": "/petlove-project/static/js/main.251ee47b.js.map"
+    "main.dc82a592.js.map": "/petlove-project/static/js/main.dc82a592.js.map"
   },
   "entrypoints": [
     "static/css/main.7b786366.css",
-    "static/js/main.251ee47b.js"
+    "static/js/main.dc82a592.js"
   ]
 }
