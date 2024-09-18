@@ -79,7 +79,7 @@ export const apiUpdateUserInfo = createAsyncThunk(
       toastFulfild("User info updated successfully!");
       return userData;
     } catch (error) {
-      toastRejected("Error");
+      toastRejected(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }

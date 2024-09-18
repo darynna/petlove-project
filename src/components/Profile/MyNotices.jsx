@@ -25,7 +25,7 @@ export const ProfileNotices = () => {
                             return <NoticeItem key={notice._id} notice={notice} isLiked={isLiked} />;
                         })
                     ) : (
-                        <p>No favorite pets found.</p>
+                        <p>Oops, looks like there aren't any furries on our adorable page yet. Do not worry! View your pets on the "find your favorite pet" page and add them to your favorites.</p>
                     )
                 ) : (
                     <Loader />

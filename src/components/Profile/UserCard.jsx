@@ -27,7 +27,7 @@ export const UserCard = () => {
                     initialValues={{
                         name: user.name || '',
                         email: user.email || '',
-                        phone: user.phone || '+44',
+                        phone: user.phone || '+38XXXXXXXXXX',
                         avatar: "https://XXXX.png"
                     }}
                     validationSchema={Yup.object({
